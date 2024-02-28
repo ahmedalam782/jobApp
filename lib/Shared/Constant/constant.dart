@@ -6,13 +6,18 @@ import '../../Model/edit_profile_data_model.dart';
 import '../../Model/interested_register_model.dart';
 import '../../Model/language_model.dart';
 import '../../Model/onboarding_model.dart';
+import '../../UI/Screens/change_password_screen.dart';
 import '../../UI/Screens/edit_profile.dart';
+import '../../UI/Screens/email_address_screen.dart';
 import '../../UI/Screens/help_center.dart';
 import '../../UI/Screens/languages_screen.dart';
-import '../../UI/Screens/notification_screen.dart';
+import '../../UI/Screens/login-and_security.dart';
+import '../../UI/Screens/notification_setting_screen.dart';
+import '../../UI/Screens/phone_number_screen.dart';
 import '../../UI/Screens/portfolio_screen.dart';
 import '../../UI/Screens/privacy_policy.dart';
 import '../../UI/Screens/terms_conditions.dart';
+import '../../UI/Screens/two_step_verification.dart';
 import '../Style/Image/image_assets.dart';
 
 class ConstantData {
@@ -146,12 +151,12 @@ class ConstantData {
     ContentButtonListModel(
       title: 'Notification',
       image: Image.asset(AppImageAssets.notification2Image),
-      routeName: NotificationScreen.routeName,
+      routeName: NotificationSettingScreen.routeName,
     ),
     ContentButtonListModel(
       title: 'Login and security',
       image: Image.asset(AppImageAssets.loginAndSecurityImage),
-      routeName: '',
+      routeName: LoginAndSecurity.routeName,
     ),
   ];
   static final List<ContentButtonListModel> otherProfile = [
@@ -176,8 +181,61 @@ class ConstantData {
     LanguagesModels(image: AppImageAssets.englandImage, title: "English"),
     LanguagesModels(image: AppImageAssets.saudiArabia2Image, title: "Arabic"),
   ];
+  static final List<ContentButtonListModel> jobNotification = [
+    ContentButtonListModel(
+      title: 'Your Job Search Alert',
+    ),
+    ContentButtonListModel(
+      title: 'Job Application Update',
+    ),
+    ContentButtonListModel(
+      title: 'Job Application Reminders',
+    ),
+    ContentButtonListModel(
+      title: 'Jobs You May Be Interested In',
+    ),
+    ContentButtonListModel(
+      title: 'Job Seeker Updates',
+    ),
+  ];
+  static final List<ContentButtonListModel> otherNotification = [
+    ContentButtonListModel(
+      title: 'Show Profile',
+    ),
+    ContentButtonListModel(
+      title: 'All Message',
+    ),
+    ContentButtonListModel(
+      title: 'Message Nudges',
+    ),
+  ];
+  static final List<ContentButtonListModel> accountAccess = [
+    ContentButtonListModel(
+      title: 'Email address',
+      text: 'rafifdian12@gmail.com',
+      routeName: EmailAddressScreen.routeName,
+    ),
+    ContentButtonListModel(
+      title: 'Phone number',
+      routeName: PhoneNumberScreen.routeName,
+    ),
+    ContentButtonListModel(
+      title: 'Change password',
+      routeName: ChangePasswordScreen.routeName,
+    ),
+    ContentButtonListModel(
+      title: 'Two-step verification',
+      text: 'Non active',
+      routeName: TwoStepVerificationScreen.routeName,
+    ),
+    ContentButtonListModel(
+      title: 'Face ID',
+    ),
+  ];
 
   static final List<String> locationWork = ['Work From Office', 'Remote Work'];
+  static final List<String> typeAppliedJob = ['Active', 'Rejected'];
+
   static bool isRemote = false;
   static bool isLogin = true;
   static String isFirstOpenApp = 'First Install';
@@ -197,9 +255,12 @@ class APIConstantData {
   static const String updateUser = 'auth/user/update';
   static const String addPortfolio = 'user/profile/portofolios';
   static const String getPortfolio = 'user/profile/portofolios';
+  static const String getSuggestedJob = 'jobs/sugest/3';
+
   static const String status = 'status';
   static const String errorLoginMessage = 'massage';
   static const String errorRegisterMessage = 'massege';
+  static const String errorSuggestedJob = 'message';
   static const String email = 'email';
   static const String password = 'password';
   static const String name = 'name';
@@ -216,4 +277,9 @@ class APIConstantData {
   static const String image = 'image';
   static const String bio = 'bio';
   static const String mobile = 'mobile';
+  static const String jobType = 'job_type';
+  static const String companyName = 'comp_name';
+  static const String salary = 'salary';
+  static const String jobTimeType = 'job_time_type';
+  static const String jobLevel = 'job_level';
 }

@@ -4,7 +4,8 @@ class ContentButtonListModel {
   final Widget? image;
   final String title;
   final String routeName;
+  final String text;
 
   ContentButtonListModel(
-      {required this.routeName, required this.title, this.image});
+      {this.text = '', this.routeName = '', required this.title, this.image});
 }

@@ -10,6 +10,7 @@ import 'package:j_bsque/UI/Widget/bottom_nav_screen/message_screen.dart';
 import 'package:j_bsque/UI/Widget/bottom_nav_screen/profile_screen.dart';
 import 'package:j_bsque/UI/Widget/bottom_nav_screen/saved_screen.dart';
 
+import '../../Model/get_suggested_job.dart';
 import '../States/home_state.dart';
 import '../Widget/bottom_nav_screen/home_details_screen.dart';
 
@@ -25,11 +26,14 @@ class HomeCubit extends Cubit<HomeStates> {
 
   List<Widget> screens = [
     HomeDetailsScreen(),
-    MessagesScreen(),
+    const MessagesScreen(),
     AppliedScreen(),
-    SavedScreen(),
-    ProfileScreen()
+    const SavedScreen(),
+    const ProfileScreen()
   ];
+  List<Map<String, dynamic>> suggestedJob = [];
+  List<String> jobType = [];
+
   ProfileDataModel? profileDataModel;
 
   void changeBottomNav(int index) {
@@ -49,6 +53,27 @@ class HomeCubit extends Cubit<HomeStates> {
       emit(HomeGetUserSuccessState());
     } on ServerExceptions catch (error) {
       emit(HomeGetUserErrorState(error.errorServerModel.errorMessage!));
+    }
+  }
+
+  late GetSuggestedJobModel getSuggestedJobModel;
+
+  Future getSuggestedJob() async {
+    try {
+      emit(HomeGetSuggestedJobLoadingState());
+      final response = await api.getData(
+        APIConstantData.getSuggestedJob,
+      );
+      getSuggestedJobModel = GetSuggestedJobModel.fromJson(response);
+      suggestedJob.add(getSuggestedJobModel.data);
+      for (int i = 0; i < suggestedJob.length; i++) {
+        jobType.add(suggestedJob[i][APIConstantData.jobTimeType]);
+        jobType.add(suggestedJob[i][APIConstantData.jobType]);
+        jobType.add(suggestedJob[i][APIConstantData.jobLevel]);
+      }
+      emit(HomeGetSuggestedJobSuccessState());
+    } on ServerExceptions catch (error) {
+      emit(HomeGetSuggestedJobErrorState(error.errorServerModel.errorMassage!));
     }
   }
 }

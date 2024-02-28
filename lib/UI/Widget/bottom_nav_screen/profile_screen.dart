@@ -44,20 +44,13 @@ class ProfileScreen extends StatelessWidget {
                   const ContainerHeaderApp(
                     title: 'General',
                   ),
-                  ListView.separated(
+                  ListView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) => ContentListView(
                       title: ConstantData.generalProfile[index].title,
                       image: ConstantData.generalProfile[index].image!,
                       routeName: ConstantData.generalProfile[index].routeName,
-                    ),
-                    separatorBuilder: (context, index) => const Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
-                      child: Divider(
-                        thickness: .8,
-                      ),
                     ),
                     itemCount: ConstantData.generalProfile.length,
                   ),
@@ -67,19 +60,12 @@ class ProfileScreen extends StatelessWidget {
                   const ContainerHeaderApp(
                     title: 'Others',
                   ),
-                  ListView.separated(
+                  ListView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) => ContentListView(
                       title: ConstantData.otherProfile[index].title,
                       routeName: ConstantData.otherProfile[index].routeName,
-                    ),
-                    separatorBuilder: (context, index) => const Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
-                      child: Divider(
-                        thickness: .9,
-                      ),
                     ),
                     itemCount: ConstantData.otherProfile.length,
                   ),

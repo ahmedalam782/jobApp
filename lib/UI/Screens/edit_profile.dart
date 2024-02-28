@@ -52,7 +52,7 @@ class EditProfile extends StatelessWidget {
           appBar: AppBar(
             title: Center(
               child: Text(
-                'Edite Profile',
+                'Personal Details',
                 style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                       fontSize: 20,
                     ),

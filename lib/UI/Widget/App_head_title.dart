@@ -23,33 +23,32 @@ class AppHeaderTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Text(
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
             headerTitle,
             style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                   fontSize: fontSizeHeaderTitle,
                   color: colorHeaderTitle,
                 ),
+            textAlign: TextAlign.center,
           ),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Text(
+          const SizedBox(
+            height: 5,
+          ),
+          Text(
             subTitle,
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   color: colorSubTitle,
                   fontSize: fontSizeSubTitle,
                 ),
+            textAlign: TextAlign.center,
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

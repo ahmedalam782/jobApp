@@ -13,3 +13,13 @@ class HomeGetUserErrorState extends HomeStates {
 }
 
 class HomeChangeBottomNavState extends HomeStates {}
+
+class HomeGetSuggestedJobLoadingState extends HomeStates {}
+
+class HomeGetSuggestedJobSuccessState extends HomeStates {}
+
+class HomeGetSuggestedJobErrorState extends HomeStates {
+  final String error;
+
+  HomeGetSuggestedJobErrorState(this.error);
+}

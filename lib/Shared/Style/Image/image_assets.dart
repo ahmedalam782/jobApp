@@ -64,4 +64,16 @@ class AppImageAssets {
   static const String edit2Image = '$routeImage/edit-2.png';
   static const String englandImage = '$routeImage/England.png';
   static const String saudiArabia2Image = '$routeImage/Saudi Arabia2.png';
+  static const String phoneImage = '$routeImage/phone.png';
+  static const String savedIlustrationImage =
+      '$routeImage/Saved Ilustration.png';
+  static const String dataIlustrationImage = '$routeImage/Data Ilustration.png';
+  static const String filterImage = '$routeImage/Filter.png';
+  static const String data2IlustrationImage =
+      '$routeImage/Data Ilustration 2.png';
+  static const String notificationIlustrationImage =
+      '$routeImage/Notification Ilustration.png';
+  static const String ellipseImage = '$routeImage/Ellipse 12.png';
+  static const String jobsqueLogoImage = '$routeImage/Jobsque Logo.png';
+  static const String emailImage = '$routeImage/Email.png';
 }
